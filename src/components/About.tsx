@@ -39,7 +39,7 @@ export default function About({ currentLang }: AboutProps) {
               
               {/* Background dark vintage barber chair photo */}
               <img
-                src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80"
+                src="https://res.cloudinary.com/dj8vbaevh/image/upload/v1783048341/Mounir_Barbershop_style_y6nm09.png"
                 alt="Mounir Barbershop Grooming Detail"
                 className="w-full h-full object-cover grayscale opacity-45 group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
                 referrerPolicy="no-referrer"
