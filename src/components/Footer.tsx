@@ -28,7 +28,7 @@ export default function Footer({ currentLang }: FooterProps) {
           {/* Left Block: Identity & Address */}
           <div className="md:col-span-4 flex flex-col space-y-4">
             <div className="flex items-center space-x-3 group">
-              <div className="w-12 h-12 rounded-full bg-brown-dark/40 border border-gold-dark/40 flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-105">
+              <div className="w-12 h-12 rounded-full bg-brown-dark/40 border border-gold-dark/40 flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-105 shrink-0">
                 <img
                   src={LOGO_URL}
                   alt="Mounir Barbershop Official Stamp Logo"
@@ -36,9 +36,14 @@ export default function Footer({ currentLang }: FooterProps) {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <span className="font-display text-lg tracking-[0.2em] uppercase font-bold text-white-off">
-                Mounir
-              </span>
+              <div className="flex flex-col justify-center">
+                <span className="font-display text-lg tracking-[0.2em] uppercase font-bold text-white-off leading-none">
+                  Mounir
+                </span>
+                <span className="font-display text-lg tracking-[0.2em] uppercase font-bold text-white-off leading-none mt-1">
+                  Barbershop
+                </span>
+              </div>
             </div>
             
             <p className="text-white-off/70 text-sm font-sans max-w-[280px]">
@@ -99,7 +104,15 @@ export default function Footer({ currentLang }: FooterProps) {
         {/* Lower Segment: Divider and Copyright notice */}
         <div className="border-t border-brown-leather/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[11px] font-mono tracking-wider text-white-off/40 text-center sm:text-left">
-            {t.footerCopyright}
+            {t.footerCopyright} • Développé par{' '}
+            <a
+              href="https://m8magency.com/fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white-off/60 hover:text-gold-warm hover:underline transition-colors"
+            >
+              m8magency
+            </a>
           </p>
           
           <div className="flex items-center space-x-4 text-[10px] font-mono tracking-widest text-white-off/30 uppercase">
