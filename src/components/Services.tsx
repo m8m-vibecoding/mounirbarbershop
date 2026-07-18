@@ -126,6 +126,7 @@ export default function Services({ currentLang }: ServicesProps) {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${t.serviceCta}: ${service.name}`}
                 className="w-full py-3 bg-transparent hover:bg-gold-dark border border-brown-leather/60 group-hover:border-gold-warm hover:text-black text-white-off/90 text-center rounded font-display text-[10px] sm:text-xs uppercase tracking-widest font-bold transition-all duration-300 flex items-center justify-center space-x-2"
               >
                 <span>{t.serviceCta}</span>

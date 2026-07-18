@@ -118,7 +118,7 @@ export default function Gallery({ currentLang }: GalleryProps) {
         {/* Bento Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-4 gap-4 md:gap-6">
           {galleryItems.map((item, index) => (
-            <motion.div
+            <motion.figure
               key={item.id}
               className={`relative group overflow-hidden rounded border border-brown-leather/30 bg-black ${item.gridClass}`}
               initial={{ opacity: 0, scale: 0.97 }}
@@ -142,22 +142,22 @@ export default function Gallery({ currentLang }: GalleryProps) {
               <div className="absolute inset-3 border border-gold-dark/0 group-hover:border-gold-dark/30 pointer-events-none transition-all duration-500 z-10" />
 
               {/* Hover Caption Overlay */}
-              <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 z-20 flex items-end justify-between transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+              <figcaption className="absolute bottom-0 left-0 w-full p-4 sm:p-6 z-20 flex items-end justify-between transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                 <div>
                   <span className="inline-block px-2.5 py-1 bg-gold-dark text-black font-mono text-[9px] font-bold uppercase tracking-widest rounded mb-2 shadow-md">
                     {item.tag[currentLang]}
                   </span>
-                  <h3 className="text-white-off text-xs sm:text-sm tracking-wide font-sans line-clamp-2 max-w-[280px]">
+                  <p className="text-white-off text-xs sm:text-sm tracking-wide font-sans line-clamp-2 max-w-[280px]">
                     {item.alt[currentLang]}
-                  </h3>
+                  </p>
                 </div>
                 
                 {/* Search magnifying icon indicator */}
                 <div className="w-8 h-8 rounded-full bg-black/60 border border-gold-dark/40 flex items-center justify-center text-gold-warm opacity-0 group-hover:opacity-100 transition-opacity duration-500 shrink-0 ml-3">
                   <Search className="w-4 h-4" />
                 </div>
-              </div>
-            </motion.div>
+              </figcaption>
+            </motion.figure>
           ))}
         </div>
 

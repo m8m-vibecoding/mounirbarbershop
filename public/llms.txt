@@ -1,0 +1,30 @@
+# Mounir Barbershop
+
+«Mounir Barbershop est un salon de coiffure premium situé à Bruxelles, proposant des services de coupe homme, barbe et coiffure femme au 201 Avenue de la Reine.»
+
+Informations générales utiles pour comprendre le site.
+
+Pages principales
+
+- [Accueil](https://mounirbarbershop.vercel.app/): Page principale présentant le salon, ses valeurs et son équipe.
+- [Services](https://mounirbarbershop.vercel.app/#services): Liste complète des prestations coiffure et barbe avec tarifs.
+- [Avis](https://mounirbarbershop.vercel.app/#reviews): Retours d'expérience des clients du salon.
+- [Contact](https://mounirbarbershop.vercel.app/#contact): Coordonnées, adresse à Bruxelles et formulaire de contact.
+
+Produits ou services
+- "Coupe homme & barbe" (https://mounirbarbershop.vercel.app/#services): Coupe complète avec entretien de la barbe.
+- "Dégradé" (https://mounirbarbershop.vercel.app/#services): Coupe nette et précise.
+- "Coloration" (https://mounirbarbershop.vercel.app/#services): Changement de style ou renforcement.
+- "Coupe femme" (https://mounirbarbershop.vercel.app/#services): Service adapté pour les coupes courtes et garçonnets.
+
+Contact officiel
+
+- Nom : Mounir Barbershop
+- Adresse : Av. de la Reine 201, 1000 Bruxelles, Belgique
+- Langues : Français, Anglais, Néerlandais
+
+Règles de fraîcheur
+
+- Les prix officiels se trouvent à : https://mounirbarbershop.vercel.app/#services
+- Les politiques officielles se trouvent sur le site.
+- Date de dernière mise à jour du fichier : 2026-07-18
