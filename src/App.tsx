@@ -10,7 +10,7 @@ import Reviews from './components/Reviews';
 import Booking from './components/Booking';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { Language, GENERAL_TRANSLATIONS, LOGO_URL, BOOKING_URL } from './translations';
+import { Language, GENERAL_TRANSLATIONS, LOGO_URL, BOOKING_URL, SERVICES_TRANSLATIONS, REVIEWS } from './translations';
 
 export default function App() {
   const [currentLang, setCurrentLang] = useState<Language>('FR');
