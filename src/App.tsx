@@ -10,7 +10,7 @@ import Reviews from './components/Reviews';
 import Booking from './components/Booking';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { Language, GENERAL_TRANSLATIONS, LOGO_URL, BOOKING_URL, SERVICES_TRANSLATIONS, REVIEWS } from './translations';
+import { Language, LANGUAGE_LOCALES, GENERAL_TRANSLATIONS, LOGO_URL, BOOKING_URL, SERVICES_TRANSLATIONS, REVIEWS } from './translations';
 
 export default function App() {
   const [currentLang, setCurrentLang] = useState<Language>('FR');
@@ -39,7 +39,7 @@ export default function App() {
     setMeta('twitter:description', t.metaDesc);
 
     // Set HTML lang attribute for screenreaders
-    document.documentElement.lang = currentLang.toLowerCase();
+    document.documentElement.lang = LANGUAGE_LOCALES[currentLang];
   }, [currentLang]);
 
   // Inject Structured LocalBusiness Schema JSON-LD for local SEO

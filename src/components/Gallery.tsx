@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Camera, Search } from 'lucide-react';
 import { Language, LOGO_URL, GENERAL_TRANSLATIONS } from '../translations';
@@ -8,6 +9,7 @@ interface GalleryProps {
 
 export default function Gallery({ currentLang }: GalleryProps) {
   const t = GENERAL_TRANSLATIONS[currentLang];
+  const [activeImage, setActiveImage] = useState<number | null>(null);
 
   // High-quality dark & warm premium barber visuals
   const galleryItems = [
@@ -48,9 +50,9 @@ export default function Gallery({ currentLang }: GalleryProps) {
       id: 4,
       src: 'https://res.cloudinary.com/dj8vbaevh/image/upload/v1783043499/Mounir_barbershop_woman_taper_kddgih.png',
       alt: {
-        FR: 'Coupe courte moderne et taper fade audacieux sur cheveux texturés féminins',
-        EN: 'Modern short haircut and bold taper fade on textured hair for women',
-        NL: 'Modern kort kapsel en gedurfde taper fade op getextureerd dameshaar'
+        FR: 'Coupe courte moderne et taper fade audacieux sur cheveux texturés',
+        EN: 'Modern short haircut and bold taper fade on textured hair',
+        NL: 'Modern kort kapsel en gedurfde taper fade op getextureerd haar'
       },
       tag: { FR: 'Style', EN: 'Style', NL: 'Stijl' },
       gridClass: 'md:col-span-1 md:row-span-2 aspect-[3/4] md:aspect-auto',
@@ -59,9 +61,9 @@ export default function Gallery({ currentLang }: GalleryProps) {
       id: 5,
       src: 'https://res.cloudinary.com/dj8vbaevh/image/upload/v1783043500/young_woman_styled_by_mounir_barbershop_fwammq.png',
       alt: {
-        FR: 'Coupe texturée élégante sur cheveux courts pour un style féminin raffiné',
-        EN: 'Elegant textured cut on short hair for a refined feminine style',
-        NL: 'Elegante getextureerde snit op kort haar voor een verfijnde damesstijl'
+        FR: 'Coupe texturée élégante sur cheveux courts avec une finition raffinée',
+        EN: 'Elegant textured cut on short hair with a refined finish',
+        NL: 'Elegante getextureerde snit op kort haar met een verfijnde afwerking'
       },
       tag: { FR: 'Tendance', EN: 'Trend', NL: 'Trend' },
       gridClass: 'md:col-span-1 md:row-span-1 aspect-square',
@@ -118,31 +120,35 @@ export default function Gallery({ currentLang }: GalleryProps) {
         {/* Bento Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-4 gap-4 md:gap-6">
           {galleryItems.map((item, index) => (
-            <motion.figure
+            <motion.button
+              type="button"
               key={item.id}
-              className={`relative group overflow-hidden rounded border border-brown-leather/30 bg-black ${item.gridClass}`}
+              className={`relative group overflow-hidden rounded border border-brown-leather/30 bg-black cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-warm ${item.gridClass}`}
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: index * 0.05, duration: 0.6 }}
+              aria-label={item.alt[currentLang]}
+              aria-pressed={activeImage === item.id}
+              onClick={() => setActiveImage((active) => active === item.id ? null : item.id)}
             >
               {/* Image element with lazy loading */}
               <img
                 src={item.src}
                 alt={item.alt[currentLang]}
-                className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-85 group-hover:scale-105 transition-all duration-700 ease-out"
+                className={`w-full h-full object-cover opacity-75 group-hover:grayscale-0 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700 ease-out ${activeImage === item.id ? 'grayscale-0 opacity-95 scale-105' : 'grayscale'}`}
                 referrerPolicy="no-referrer"
                 loading="lazy"
               />
 
               {/* Black gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent transition-opacity duration-500 ${activeImage === item.id ? 'opacity-45' : 'opacity-30 group-hover:opacity-45'}`} />
 
               {/* Top border decor when hovered */}
               <div className="absolute inset-3 border border-gold-dark/0 group-hover:border-gold-dark/30 pointer-events-none transition-all duration-500 z-10" />
 
               {/* Hover Caption Overlay */}
-              <figcaption className="absolute bottom-0 left-0 w-full p-4 sm:p-6 z-20 flex items-end justify-between transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 z-20 flex items-end justify-between transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                 <div>
                   <span className="inline-block px-2.5 py-1 bg-gold-dark text-black font-mono text-[9px] font-bold uppercase tracking-widest rounded mb-2 shadow-md">
                     {item.tag[currentLang]}
@@ -156,8 +162,8 @@ export default function Gallery({ currentLang }: GalleryProps) {
                 <div className="w-8 h-8 rounded-full bg-black/60 border border-gold-dark/40 flex items-center justify-center text-gold-warm opacity-0 group-hover:opacity-100 transition-opacity duration-500 shrink-0 ml-3">
                   <Search className="w-4 h-4" />
                 </div>
-              </figcaption>
-            </motion.figure>
+              </div>
+            </motion.button>
           ))}
         </div>
 

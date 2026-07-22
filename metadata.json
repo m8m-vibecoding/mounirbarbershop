@@ -1,6 +1,6 @@
 {
   "name": "Mounir Barbershop",
-  "description": "Salon de coiffure homme et femme de prestige à Bruxelles. Réservation rapide en ligne.",
+  "description": "Salon de coiffure pour hommes et garçons à Bruxelles. Réservation rapide en ligne.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, MapPin } from 'lucide-react';
 import { Language, LOGO_URL, GENERAL_TRANSLATIONS } from '../translations';
@@ -8,6 +9,7 @@ interface AboutProps {
 
 export default function About({ currentLang }: AboutProps) {
   const t = GENERAL_TRANSLATIONS[currentLang];
+  const [isImageActive, setIsImageActive] = useState(false);
 
   return (
     <section
@@ -27,12 +29,16 @@ export default function About({ currentLang }: AboutProps) {
             <div className="absolute w-[80%] h-[80%] bg-gold-dark/10 rounded-full blur-[80px]" />
             
             {/* Frame and image container */}
-            <motion.div
+            <motion.button
+              type="button"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8 }}
-              className="relative w-full max-w-[400px] aspect-[4/5] rounded bg-black border border-brown-leather/30 p-3 shadow-2xl group overflow-hidden"
+              aria-label={currentLang === 'FR' ? 'Afficher la photo en couleur' : currentLang === 'EN' ? 'Show photo in color' : 'Foto in kleur tonen'}
+              aria-pressed={isImageActive}
+              onClick={() => setIsImageActive((active) => !active)}
+              className="relative w-full max-w-[400px] aspect-[4/5] rounded bg-black border border-brown-leather/30 p-3 shadow-2xl group overflow-hidden cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-warm"
             >
               {/* Inner vintage frame */}
               <div className="absolute inset-4 border border-gold-dark/20 pointer-events-none z-10" />
@@ -41,13 +47,13 @@ export default function About({ currentLang }: AboutProps) {
               <img
                 src="https://res.cloudinary.com/dj8vbaevh/image/upload/v1783048341/Mounir_Barbershop_style_y6nm09.png"
                 alt="Mounir Barbershop Grooming Detail"
-                className="w-full h-full object-cover grayscale opacity-45 group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
+                className={`w-full h-full object-cover opacity-70 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-90 ${isImageActive ? 'grayscale-0 scale-105 opacity-90' : 'grayscale'}`}
                 referrerPolicy="no-referrer"
                 loading="lazy"
               />
 
               {/* Central Floating Logo with Premium Golden Radial Glow */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-6 bg-gradient-to-t from-black via-black/40 to-transparent">
+              <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
                 <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-black/80 backdrop-blur-md border border-gold-dark p-3 shadow-[0_0_30px_rgba(168,121,50,0.4)] flex items-center justify-center">
                   <img
                     src={LOGO_URL}
@@ -65,7 +71,7 @@ export default function About({ currentLang }: AboutProps) {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </motion.button>
           </div>
 
           {/* Right Column: Text Presentation */}

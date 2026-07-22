@@ -14,6 +14,8 @@ export interface ReviewItem {
   source: string;
 }
 
+export const LANGUAGE_LOCALES: Record<Language, string> = { FR: 'fr', EN: 'en', NL: 'nl' };
+
 export const LANGUAGES: { code: Language; label: string }[] = [
   { code: 'FR', label: 'FR' },
   { code: 'EN', label: 'EN' },
@@ -71,9 +73,9 @@ export const SERVICES_TRANSLATIONS: Record<Language, ServiceItem[]> = {
       price: 5
     },
     {
-      id: 'women-boy',
-      name: 'Coupe femme garçonnet',
-      description: 'Service coupe femme ou garçonnet selon le besoin.',
+      id: 'young-boy',
+      name: 'Coupe garçon + styling',
+      description: 'Coupe garçon travaillée avec coiffage et finitions soignées.',
       price: 20
     }
   ],
@@ -127,9 +129,9 @@ export const SERVICES_TRANSLATIONS: Record<Language, ServiceItem[]> = {
       price: 5
     },
     {
-      id: 'women-boy',
-      name: 'Women’s cut or young boy cut',
-      description: 'Haircut service for women or young boys depending on the need.',
+      id: 'young-boy',
+      name: 'Boy’s cut + styling',
+      description: 'Detailed haircut for boys with styling and a clean finish.',
       price: 20
     }
   ],
@@ -183,9 +185,9 @@ export const SERVICES_TRANSLATIONS: Record<Language, ServiceItem[]> = {
       price: 5
     },
     {
-      id: 'women-boy',
-      name: 'Damescoupe of jongenskapsel',
-      description: 'Coupe voor vrouwen of jonge jongens volgens de behoefte.',
+      id: 'young-boy',
+      name: 'Jongenskapsel + styling',
+      description: 'Verzorgd jongenskapsel met styling en een strakke afwerking.',
       price: 20
     }
   ]
@@ -224,22 +226,24 @@ export const OTHER_REVIEWERS = [
 
 export const GENERAL_TRANSLATIONS = {
   FR: {
-    metaTitle: "Mounir Barbershop Bruxelles | Coiffeur homme et femme Av. de la Reine",
-    metaDesc: "Mounir Barbershop vous accueille à Bruxelles pour coupe homme, barbe, dégradé, coupe enfant, coloration, défrisage, shampoing et services femme. Réservez en ligne.",
+    metaTitle: "Mounir Barbershop Bruxelles | Coiffeur hommes et garçons",
+    metaDesc: "Mounir Barbershop accueille hommes et garçons à Bruxelles pour coupes, barbe, dégradés, coloration, défrisage et shampoing. Réservez en ligne.",
     navHome: "Accueil",
     navServices: "Services",
     navReviews: "Avis",
     navBook: "Réserver",
     navContact: "Contact",
     heroLabel: "BARBER SHOP À BRUXELLES",
-    heroTitle: "Mounir Barbershop, votre coiffeur homme et femme à Bruxelles",
+    heroTitle: "Mounir Barbershop, votre coiffeur pour hommes et garçons à Bruxelles",
     heroSubtitle: "Salon situé à 1000 Bruxelles. Services rapides, soignés et accessibles.",
     heroCtaMain: "Réserver maintenant",
     heroCtaSub: "Voir les services",
-    heroTrust: "Coupes homme, barbe, dégradés, contours, coloration, défrisage et services femme au cœur de Bruxelles, Av. de la Reine 201.",
+    heroMapCta: "Y aller",
+    heroMapAlt: "Plan de Mounir Barbershop, Avenue de la Reine 201 à Bruxelles",
+    heroTrust: "Coupes homme et garçon, barbe, dégradés, contours, coloration et défrisage au cœur de Bruxelles, Av. de la Reine 201.",
     aboutLabel: "LE SALON",
     aboutTitle: "Un salon bruxellois pour des coupes propres, nettes et maîtrisées",
-    aboutText1: "Mounir Barbershop accueille hommes, femmes et enfants à Bruxelles pour des services de coiffure simples, efficaces et soignés. Que vous veniez pour un dégradé, une barbe, une coupe enfant, une coloration ou un défrisage, le salon met l’accent sur la précision, l’écoute et un résultat propre.",
+    aboutText1: "Mounir Barbershop accueille hommes et garçons à Bruxelles pour des services de coiffure simples, efficaces et soignés. Que vous veniez pour un dégradé, une barbe, une coupe enfant, une coloration ou un défrisage, le salon met l’accent sur la précision, l’écoute et un résultat propre.",
     aboutText2: "Situé Av. de la Reine 201, le salon offre une adresse pratique pour celles et ceux qui cherchent un coiffeur à Bruxelles avec des prix clairs et une réservation facile.",
     servicesTitle: "Services et tarifs",
     servicesSubtitle: "Des prestations claires, rapides à réserver et adaptées à vos besoins.",
@@ -257,30 +261,32 @@ export const GENERAL_TRANSLATIONS = {
     contactSubtitle: "Mounir Barbershop vous accueille à Bruxelles, Av. de la Reine 201.",
     contactAddrLabel: "Adresse",
     contactActLabel: "Activité",
-    contactActText: "Salon de coiffure homme et femme à Bruxelles",
+    contactActText: "Salon de coiffure pour hommes et garçons à Bruxelles",
     contactBookLabel: "Réservation",
     contactBookBtn: "Réserver maintenant",
     contactMapBtn: "Ouvrir dans Google Maps",
-    footerText: "Salon de coiffure homme et femme à Bruxelles",
+    footerText: "Salon de coiffure pour hommes et garçons à Bruxelles",
     footerCopyright: "© 2026 Mounir Barbershop. Tous droits réservés.",
   },
   EN: {
-    metaTitle: "Mounir Barbershop Brussels | Men’s and Women’s Hair Salon",
-    metaDesc: "Mounir Barbershop in Brussels offers men’s cuts, beard trims, fades, kids’ cuts, coloring, relaxing, shampoo and women’s services. Book online.",
+    metaTitle: "Mounir Barbershop Brussels | Men’s and Boys’ Barber",
+    metaDesc: "Mounir Barbershop welcomes men and boys in Brussels for haircuts, beard trims, fades, coloring, relaxing and shampoo. Book online.",
     navHome: "Home",
     navServices: "Services",
     navReviews: "Reviews",
     navBook: "Book",
     navContact: "Contact",
     heroLabel: "BARBER SHOP IN BRUSSELS",
-    heroTitle: "Mounir Barbershop, your men’s and women’s hair salon in Brussels",
+    heroTitle: "Mounir Barbershop, your barber for men and boys in Brussels",
     heroSubtitle: "Located in 1000 Brussels. Clean, sharp and accessible grooming services.",
     heroCtaMain: "Book now",
     heroCtaSub: "View services",
-    heroTrust: "Men’s cuts, beard trims, fades, line-ups, coloring, relaxing and women’s services in Brussels, Av. de la Reine 201.",
+    heroMapCta: "Get directions",
+    heroMapAlt: "Map of Mounir Barbershop at Avenue de la Reine 201 in Brussels",
+    heroTrust: "Men’s and boys’ cuts, beard trims, fades, line-ups, coloring and relaxing in Brussels, Av. de la Reine 201.",
     aboutLabel: "THE SALON",
     aboutTitle: "A Brussels salon for clean, sharp and precise haircuts",
-    aboutText1: "Mounir Barbershop welcomes men, women and children in Brussels for simple, efficient and clean grooming services. Whether you need a fade, beard trim, kids’ cut, coloring or relaxing, the salon focuses on precision, listening and a sharp result.",
+    aboutText1: "Mounir Barbershop welcomes men and boys in Brussels for simple, efficient and clean grooming services. Whether you need a fade, beard trim, kids’ cut, coloring or relaxing, the salon focuses on precision, listening and a sharp result.",
     aboutText2: "Located at Av. de la Reine 201, the salon offers a practical address for anyone looking for a hair salon in Brussels with clear prices and easy booking.",
     servicesTitle: "Services and prices",
     servicesSubtitle: "Clear services, quick booking and tailored to your needs.",
@@ -298,30 +304,32 @@ export const GENERAL_TRANSLATIONS = {
     contactSubtitle: "Mounir Barbershop welcomes you in Brussels, Av. de la Reine 201.",
     contactAddrLabel: "Address",
     contactActLabel: "Activity",
-    contactActText: "Men’s and women’s hair salon in Brussels",
+    contactActText: "Barber shop for men and boys in Brussels",
     contactBookLabel: "Booking",
     contactBookBtn: "Book now",
     contactMapBtn: "Open in Google Maps",
-    footerText: "Men’s and women’s hair salon in Brussels",
+    footerText: "Barber shop for men and boys in Brussels",
     footerCopyright: "© 2026 Mounir Barbershop. All rights reserved.",
   },
   NL: {
-    metaTitle: "Mounir Barbershop Brussel | Kapsalon voor mannen en vrouwen",
-    metaDesc: "Mounir Barbershop in Brussel biedt herenkapsels, baardverzorging, fades, kinderkapsels, kleuring, ontkrulling, shampoo en damesdiensten. Reserveer online.",
+    metaTitle: "Mounir Barbershop Brussel | Kapper voor mannen en jongens",
+    metaDesc: "Mounir Barbershop verwelkomt mannen en jongens in Brussel voor kapsels, baardverzorging, fades, kleuring, ontkrulling en shampoo. Reserveer online.",
     navHome: "Start",
     navServices: "Diensten",
     navReviews: "Reviews",
     navBook: "Reservatie",
     navContact: "Contact",
     heroLabel: "BARBERSHOP IN BRUSSEL",
-    heroTitle: "Mounir Barbershop, jouw kapsalon voor mannen en vrouwen in Brussel",
+    heroTitle: "Mounir Barbershop, jouw kapper voor mannen en jongens in Brussel",
     heroSubtitle: "Gelegen in 1000 Brussel. Verzorgde, snelle en toegankelijke kappersdiensten.",
     heroCtaMain: "Reserveer nu",
     heroCtaSub: "Bekijk diensten",
-    heroTrust: "Herenkapsels, baardverzorging, fades, contouren, kleuring, ontkrulling en damesdiensten in Brussel, Av. de la Reine 201.",
+    heroMapCta: "Route",
+    heroMapAlt: "Kaart van Mounir Barbershop aan de Koninginnelaan 201 in Brussel",
+    heroTrust: "Kapsels voor mannen en jongens, baardverzorging, fades, contouren, kleuring en ontkrulling in Brussel, Av. de la Reine 201.",
     aboutLabel: "HET SALON",
     aboutTitle: "Een Brussels kapsalon voor verzorgde, strakke en precieze kapsels",
-    aboutText1: "Mounir Barbershop ontvangt mannen, vrouwen en kinderen in Brussel voor eenvoudige, efficiënte en verzorgde kappersdiensten. Of je nu komt voor een fade, baard, kinderkapsel, kleuring of ontkrulling, het salon focust op precisie, luisteren en een verzorgd resultaat.",
+    aboutText1: "Mounir Barbershop ontvangt mannen en jongens in Brussel voor eenvoudige, efficiënte en verzorgde kappersdiensten. Of je nu komt voor een fade, baard, kinderkapsel, kleuring of ontkrulling, het salon focust op precisie, luisteren en een verzorgd resultaat.",
     aboutText2: "Gelegen aan de Av. de la Reine 201, biedt het salon een praktische locatie voor wie een kapper in Brussel zoekt met duidelijke prijzen en eenvoudige reservatie.",
     servicesTitle: "Diensten en tarieven",
     servicesSubtitle: "Duidelijke diensten, snel te reserveren en afgestemd op jouw behoeften.",
@@ -339,14 +347,15 @@ export const GENERAL_TRANSLATIONS = {
     contactSubtitle: "Mounir Barbershop verwelkomt je in Brussel, Av. de la Reine 201.",
     contactAddrLabel: "Adres",
     contactActLabel: "Activiteit",
-    contactActText: "Kapsalon voor mannen en vrouwen in Brussel",
+    contactActText: "Kapsalon voor mannen en jongens in Brussel",
     contactBookLabel: "Reservatie",
     contactBookBtn: "Reserveer nu",
     contactMapBtn: "Openen in Google Maps",
-    footerText: "Kapsalon voor mannen en vrouwen in Brussel",
+    footerText: "Kapsalon voor mannen en jongens in Brussel",
     footerCopyright: "© 2026 Mounir Barbershop. Alle rechten voorbehouden.",
   }
 };
 
 export const BOOKING_URL = 'https://calendar.app.google/SWAQ5j7sJ7vq3Q8e8';
+export const DIRECTIONS_URL = 'https://www.google.com/maps/dir/?api=1&destination=Av.+de+la+Reine+201%2C+1000+Bruxelles%2C+Belgique';
 export const LOGO_URL = 'https://res.cloudinary.com/dj8vbaevh/image/upload/v1783039152/mb_fluaoa.png';

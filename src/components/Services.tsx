@@ -29,7 +29,7 @@ export default function Services({ currentLang }: ServicesProps) {
         return <Layers className="w-5 h-5" />;
       case 'shampoo':
         return <Droplet className="w-5 h-5" />;
-      case 'women-boy':
+      case 'young-boy':
         return <User className="w-5 h-5" />;
       default:
         return <Scissors className="w-5 h-5" />;

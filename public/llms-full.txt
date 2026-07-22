@@ -1,7 +1,7 @@
 # Mounir Barbershop - Full Content for LLMs
 
 ## Introduction
-Mounir Barbershop accueille hommes, femmes et enfants à Bruxelles pour des services de coiffure simples, efficaces et soignés. Que vous veniez pour un dégradé, une barbe, une coupe enfant, une coloration ou un défrisage, le salon met l’accent sur la précision, l’écoute et un résultat propre.
+Mounir Barbershop accueille hommes et garçons à Bruxelles pour des services de coiffure simples, efficaces et soignés. Que vous veniez pour un dégradé, une barbe, une coupe enfant, une coloration ou un défrisage, le salon met l’accent sur la précision, l’écoute et un résultat propre.
 
 ## Services et Tarifs
 
@@ -15,7 +15,7 @@ Mounir Barbershop accueille hommes, femmes et enfants à Bruxelles pour des serv
 | Coloration + coupe | Coloration et coupe complète | 30€ |
 | Défrisage | Lisser et discipliner les cheveux | 15€ |
 | Shampoing | Shampoing complémentaire | 5€ |
-| Coupe femme garçonnet | Service coupe femme ou garçonnet | 20€ |
+| Coupe garçon + styling | Coupe travaillée avec coiffage et finitions soignées | 20€ |
 
 ## Localisation
 Adresse : Av. de la Reine 201, 1000 Bruxelles, Belgique.
