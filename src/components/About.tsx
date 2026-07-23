@@ -46,7 +46,7 @@ export default function About({ currentLang }: AboutProps) {
               {/* Background dark vintage barber chair photo */}
               <img
                 src="https://res.cloudinary.com/dj8vbaevh/image/upload/v1783048341/Mounir_Barbershop_style_y6nm09.png"
-                alt="Mounir Barbershop Grooming Detail"
+                alt="MOUNIR BARBERSHOP Grooming Detail"
                 className={`w-full h-full object-cover opacity-70 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-90 ${isImageActive ? 'grayscale-0 scale-105 opacity-90' : 'grayscale'}`}
                 referrerPolicy="no-referrer"
                 loading="lazy"
@@ -57,7 +57,7 @@ export default function About({ currentLang }: AboutProps) {
                 <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-black/80 backdrop-blur-md border border-gold-dark p-3 shadow-[0_0_30px_rgba(168,121,50,0.4)] flex items-center justify-center">
                   <img
                     src={LOGO_URL}
-                    alt="Mounir Barbershop Logo Centered"
+                    alt="MOUNIR BARBERSHOP Logo Centered"
                     className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(196,154,74,0.4)]"
                     referrerPolicy="no-referrer"
                   />

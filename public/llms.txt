@@ -1,6 +1,6 @@
-# Mounir Barbershop
+# MOUNIR BARBERSHOP
 
-«Mounir Barbershop est un salon de coiffure premium situé à Bruxelles, proposant des coupes pour hommes et garçons ainsi que des services de barbe au 201 Avenue de la Reine.»
+«MOUNIR BARBERSHOP est un salon de coiffure premium situé à Bruxelles, proposant des coupes pour hommes et garçons ainsi que des services de barbe au 201 Avenue de la Reine.»
 
 Informations générales utiles pour comprendre le site.
 
@@ -19,7 +19,7 @@ Produits ou services
 
 Contact officiel
 
-- Nom : Mounir Barbershop
+- Nom : MOUNIR BARBERSHOP
 - Adresse : Av. de la Reine 201, 1000 Bruxelles, Belgique
 - Langues : Français, Anglais, Néerlandais
 

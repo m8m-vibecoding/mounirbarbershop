@@ -83,7 +83,7 @@ export default function Loader({ onComplete }: LoaderProps) {
                   <div className="relative w-36 h-36 md:w-44 md:h-44 p-4 rounded-full bg-black/40 backdrop-blur-md border border-gold-dark/30 flex items-center justify-center shadow-2xl">
                     <img
                       src={LOGO_URL}
-                      alt="Mounir Barbershop Logo"
+                      alt="MOUNIR BARBERSHOP Logo"
                       className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(196,154,74,0.3)]"
                       referrerPolicy="no-referrer"
                     />
@@ -95,7 +95,7 @@ export default function Loader({ onComplete }: LoaderProps) {
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="mt-6 font-display text-2xl md:text-3xl text-gold-warm tracking-[0.2em] uppercase font-bold"
                   >
-                    Mounir Barbershop
+                    MOUNIR BARBERSHOP
                   </motion.h1>
                   <motion.div
                     id="loader-decor-line"

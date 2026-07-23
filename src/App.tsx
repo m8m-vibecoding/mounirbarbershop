@@ -62,7 +62,7 @@ export default function App() {
         {
           "@type": "HairSalon",
           "@id": `${window.location.origin}/#organization`,
-          "name": "Mounir Barbershop",
+          "name": "MOUNIR BARBERSHOP",
           "image": LOGO_URL,
           "url": window.location.origin,
           "telephone": "", 
@@ -93,7 +93,7 @@ export default function App() {
           "@type": "WebSite",
           "@id": `${window.location.origin}/#website`,
           "url": window.location.origin,
-          "name": "Mounir Barbershop",
+          "name": "MOUNIR BARBERSHOP",
           "publisher": { "@id": `${window.location.origin}/#organization` }
         },
         {

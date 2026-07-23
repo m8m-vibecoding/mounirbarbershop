@@ -41,7 +41,7 @@ export default function Booking({ currentLang }: BookingProps) {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] w-96 h-96 pointer-events-none group-hover:opacity-[0.03] transition-opacity duration-700">
             <img
               src={LOGO_URL}
-              alt="Mounir Barbershop Watermark"
+              alt="MOUNIR BARBERSHOP Watermark"
               className="w-full h-full object-contain"
               referrerPolicy="no-referrer"
             />
@@ -52,7 +52,7 @@ export default function Booking({ currentLang }: BookingProps) {
             <div className="w-20 h-20 rounded-full bg-black/60 border border-gold-dark/30 p-2 shadow-lg">
               <img
                 src={LOGO_URL}
-                alt="Mounir Barbershop Mini Seal"
+                alt="MOUNIR BARBERSHOP Mini Seal"
                 className="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(196,154,74,0.15)]"
                 referrerPolicy="no-referrer"
               />

@@ -17,9 +17,9 @@ export default function Gallery({ currentLang }: GalleryProps) {
       id: 1,
       src: 'https://res.cloudinary.com/dj8vbaevh/image/upload/v1783043506/Taper_by_mounir_barbershop_vysl7q.png',
       alt: {
-        FR: 'Coupe dégradée (taper) moderne réalisée avec précision chez Mounir Barbershop',
-        EN: 'Modern taper fade haircut styled with ultimate precision at Mounir Barbershop',
-        NL: 'Moderne taper fade kapsel met uiterste precisie gestyld bij Mounir Barbershop'
+        FR: 'Coupe dégradée (taper) moderne réalisée avec précision chez MOUNIR BARBERSHOP',
+        EN: 'Modern taper fade haircut styled with ultimate precision at MOUNIR BARBERSHOP',
+        NL: 'Moderne taper fade kapsel met uiterste precisie gestyld bij MOUNIR BARBERSHOP'
       },
       tag: { FR: 'Taper', EN: 'Taper', NL: 'Taper' },
       gridClass: 'md:col-span-2 md:row-span-2 aspect-[4/3] md:aspect-auto',

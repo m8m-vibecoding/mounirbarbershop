@@ -142,7 +142,7 @@ export default function Contact({ currentLang }: ContactProps) {
             >
               {/* Maps Interactive iFrame */}
               <iframe
-                title="Google Maps Mounir Barbershop location"
+                title="Google Maps MOUNIR BARBERSHOP location"
                 src={mapsEmbedUrl}
                 className="w-full h-full border-none filter invert-[90%] hue-rotate-[180deg] saturate-[50%] contrast-[110%] opacity-80"
                 allowFullScreen

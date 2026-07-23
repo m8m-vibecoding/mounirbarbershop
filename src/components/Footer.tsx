@@ -31,17 +31,17 @@ export default function Footer({ currentLang }: FooterProps) {
               <div className="w-12 h-12 rounded-full bg-brown-dark/40 border border-gold-dark/40 flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-105 shrink-0">
                 <img
                   src={LOGO_URL}
-                  alt="Mounir Barbershop Official Stamp Logo"
+                  alt="MOUNIR BARBERSHOP Official Stamp Logo"
                   className="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(196,154,74,0.15)]"
                   referrerPolicy="no-referrer"
                 />
               </div>
               <div className="flex flex-col justify-center">
                 <span className="font-display text-lg tracking-[0.2em] uppercase font-bold text-white-off leading-none">
-                  Mounir
+                  MOUNIR
                 </span>
                 <span className="font-display text-lg tracking-[0.2em] uppercase font-bold text-white-off leading-none mt-1">
-                  Barbershop
+                  BARBERSHOP
                 </span>
               </div>
             </div>

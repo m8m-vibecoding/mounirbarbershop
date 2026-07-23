@@ -1,7 +1,7 @@
-# Mounir Barbershop - Full Content for LLMs
+# MOUNIR BARBERSHOP - Full Content for LLMs
 
 ## Introduction
-Mounir Barbershop accueille hommes et garçons à Bruxelles pour des services de coiffure simples, efficaces et soignés. Que vous veniez pour un dégradé, une barbe, une coupe enfant, une coloration ou un défrisage, le salon met l’accent sur la précision, l’écoute et un résultat propre.
+MOUNIR BARBERSHOP accueille hommes et garçons à Bruxelles pour des services de coiffure simples, efficaces et soignés. Que vous veniez pour un dégradé, une barbe, une coupe enfant, une coloration ou un défrisage, le salon met l’accent sur la précision, l’écoute et un résultat propre.
 
 ## Services et Tarifs
 
@@ -27,5 +27,5 @@ Réservation via Google Calendar : https://calendar.app.google/SWAQ5j7sJ7vq3Q8e8
 - "Il coiffe très bien." (4/5)
 
 ## Informations Légales
-© 2026 Mounir Barbershop. Tous droits réservés.
+© 2026 MOUNIR BARBERSHOP. Tous droits réservés.
 Développé par m8magency.

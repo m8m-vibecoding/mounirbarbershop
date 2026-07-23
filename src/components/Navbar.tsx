@@ -90,11 +90,11 @@ export default function Navbar({ currentLang, onChangeLang, activeSection }: Nav
         {/* Center: Brand Logo flanked by golden flourishes */}
         <div className="flex items-center justify-center space-x-4 lg:w-1/3">
           <FlourishLeft />
-          <a href="#home" className="flex items-center shrink-0 group focus:outline-none" aria-label="Mounir Barbershop">
+          <a href="#home" className="flex items-center shrink-0 group focus:outline-none" aria-label="MOUNIR BARBERSHOP">
             <div className="w-16 h-16 md:w-[72px] md:h-[72px] rounded-full bg-black/40 border border-gold-dark/40 flex items-center justify-center p-1.5 transition-transform duration-500 group-hover:scale-105 group-hover:border-gold-warm">
               <img
                 src={LOGO_URL}
-                alt="Mounir Barbershop Logo"
+                alt="MOUNIR BARBERSHOP Logo"
                 className="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(196,154,74,0.2)]"
                 referrerPolicy="no-referrer"
               />
