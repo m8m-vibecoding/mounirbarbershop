@@ -81,7 +81,7 @@ export default function Hero({ currentLang }: HeroProps) {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="order-2 sm:order-1 w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-dark to-gold-warm hover:from-gold-warm hover:to-gold-dark text-black rounded font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-bold transition-all duration-300 transform active:scale-95 shadow-xl shadow-gold-warm/15 flex items-center justify-center space-x-3"
+            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-dark to-gold-warm hover:from-gold-warm hover:to-gold-dark text-black rounded font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-bold transition-all duration-300 transform active:scale-95 shadow-xl shadow-gold-warm/15 flex items-center justify-center space-x-3"
           >
             <Calendar className="w-4 h-4" />
             <span>{t.heroCtaMain}</span>
@@ -89,21 +89,12 @@ export default function Hero({ currentLang }: HeroProps) {
 
           <a
             href="#services"
-            className="order-3 sm:order-2 w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-brown-dark/35 border border-brown-leather hover:border-gold-warm text-white-off rounded font-display text-xs sm:text-sm uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center space-x-2"
+            className="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-brown-dark/35 border border-brown-leather hover:border-gold-warm text-white-off rounded font-display text-xs sm:text-sm uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center space-x-2"
           >
             <span>{t.heroCtaSub}</span>
             <ArrowDown className="w-4 h-4 text-gold-warm animate-bounce" />
           </a>
 
-          <a
-            href={DIRECTIONS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="order-1 sm:order-3 w-full sm:w-auto px-6 py-4 bg-black/35 hover:bg-white-off/10 border border-white-off/25 hover:border-gold-warm text-white-off rounded font-display text-xs sm:text-sm uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center space-x-2"
-          >
-            <MapPinned className="w-4 h-4 text-gold-warm" />
-            <span>{t.heroMapCta}</span>
-          </a>
         </motion.div>
       </div>
 
