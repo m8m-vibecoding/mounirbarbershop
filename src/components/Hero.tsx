@@ -31,11 +31,13 @@ export default function Hero({ currentLang }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="font-display text-3xl sm:text-5xl lg:text-6xl text-white-off tracking-tight leading-[1.15] max-w-[900px] mb-6 font-bold"
+          className="font-display max-w-[1050px] mb-5 font-bold tracking-tight"
         >
-          Mounir Barbershop,{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-warm via-beige-light to-gold-dark block sm:inline">
-            {currentLang === 'FR' ? 'votre coiffeur pour hommes et garçons à Bruxelles' : currentLang === 'EN' ? 'your barber for men and boys in Brussels' : 'jouw kapper voor mannen en jongens in Brussel'}
+          <span className="block text-3xl sm:text-5xl lg:text-6xl leading-[1.1] text-white-off uppercase">
+            {t.heroBrand}
+          </span>
+          <span className="block mt-2 text-2xl sm:text-4xl lg:text-5xl leading-[1.18] text-transparent bg-clip-text bg-gradient-to-r from-gold-warm via-beige-light to-gold-dark">
+            {t.heroTitle}
           </span>
         </motion.h1>
 
@@ -43,7 +45,7 @@ export default function Hero({ currentLang }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.7 }}
-          className="text-white-off/80 text-sm sm:text-lg lg:text-xl font-sans leading-relaxed max-w-[720px] mb-6"
+          className="text-white-off/80 text-sm sm:text-base lg:text-lg font-sans leading-relaxed max-w-[780px] mb-6 whitespace-pre-line"
         >
           {t.heroSubtitle}
         </motion.p>
