@@ -36,7 +36,7 @@ export default function Hero({ currentLang }: HeroProps) {
           <span className="block text-3xl sm:text-5xl lg:text-6xl leading-[1.1] text-white-off uppercase">
             {t.heroBrand}
           </span>
-          <span className="block mt-2 text-2xl sm:text-4xl lg:text-5xl leading-[1.18] text-transparent bg-clip-text bg-gradient-to-r from-gold-warm via-beige-light to-gold-dark">
+          <span className="block mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-[1.12] text-transparent bg-clip-text bg-gradient-to-r from-gold-warm via-beige-light to-gold-dark drop-shadow-[0_2px_18px_rgba(201,168,106,0.3)]">
             {t.heroTitle}
           </span>
         </motion.h1>
