@@ -11,6 +11,11 @@ export default function Loader({ onComplete }: LoaderProps) {
   const [shouldExit, setShouldExit] = useState(false);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      onComplete();
+      return;
+    }
+
     // Show logo after bands start revealing
     const logoTimer = setTimeout(() => {
       setShowLogo(true);
@@ -47,6 +52,7 @@ export default function Loader({ onComplete }: LoaderProps) {
       {!shouldExit && (
         <motion.div
           id="loader-container"
+          aria-hidden="true"
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0F0F0F] overflow-hidden"
           exit={{ opacity: 0, transition: { duration: 0.5, ease: 'easeInOut' } }}
         >
@@ -83,12 +89,12 @@ export default function Loader({ onComplete }: LoaderProps) {
                   <div className="relative w-36 h-36 md:w-44 md:h-44 p-4 rounded-full bg-black/40 backdrop-blur-md border border-gold-dark/30 flex items-center justify-center shadow-2xl">
                     <img
                       src={LOGO_URL}
-                      alt="MOUNIR BARBERSHOP Logo"
+                      alt=""
                       className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(196,154,74,0.3)]"
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <motion.h1
+                  <motion.p
                     id="loader-brand-name"
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -96,7 +102,7 @@ export default function Loader({ onComplete }: LoaderProps) {
                     className="mt-6 font-display text-2xl md:text-3xl text-gold-warm tracking-[0.2em] uppercase font-bold"
                   >
                     MOUNIR BARBERSHOP
-                  </motion.h1>
+                  </motion.p>
                   <motion.div
                     id="loader-decor-line"
                     initial={{ width: 0 }}

@@ -65,3 +65,33 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Keyboard and no-JavaScript accessibility */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10000;
+  transform: translateY(-200%);
+  border-radius: 0.25rem;
+  background: #FFD166;
+  color: #000;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:where(a, button, summary, input, select, textarea):focus-visible {
+  outline: 3px solid #FFD166;
+  outline-offset: 3px;
+}
+
+.no-js [style*="opacity:0"],
+.no-js [style*="opacity: 0"] {
+  opacity: 1 !important;
+  transform: none !important;
+}

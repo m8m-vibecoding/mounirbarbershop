@@ -1,10 +1,11 @@
 import {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
+import {hydrateRoot} from 'react-dom/client';
 import App from './App.tsx';
+import {languageFromPath} from './siteConfig';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+hydrateRoot(document.getElementById('root')!,
   <StrictMode>
-    <App />
+    <App initialLanguage={languageFromPath(window.location.pathname)} />
   </StrictMode>,
 );

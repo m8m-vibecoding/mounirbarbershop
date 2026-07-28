@@ -1,20 +1,24 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# MOUNIR BARBERSHOP
 
-# Run and deploy your AI Studio app
+Site vitrine multilingue de MOUNIR BARBERSHOP, construit avec React 19, TypeScript, Vite 6 et Tailwind CSS 4.
 
-This contains everything you need to run your app locally.
+## Développement
 
-View your app in AI Studio: https://ai.studio/apps/73c76fed-4cf0-4de8-b601-079be84f38fc
+Prérequis : Node.js 20 ou version ultérieure.
 
-## Run Locally
+```bash
+npm install
+npm run dev
+```
 
-**Prerequisites:**  Node.js
+## Contrôles de production
 
+```bash
+npm run lint
+npm run build
+npm run check
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Le build génère les fichiers publics, pré-rend les routes `/`, `/en/` et `/nl/`, puis vérifie automatiquement le HTML initial, les métadonnées, les canonicals, les hreflang, le JSON-LD, le sitemap, robots.txt, llms.txt et la page 404.
+
+La documentation technique détaillée se trouve dans [docs/SEO-AEO.md](docs/SEO-AEO.md).

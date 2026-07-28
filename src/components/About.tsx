@@ -57,14 +57,14 @@ export default function About({ currentLang }: AboutProps) {
                 <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-black/80 backdrop-blur-md border border-gold-dark p-3 shadow-[0_0_30px_rgba(168,121,50,0.4)] flex items-center justify-center">
                   <img
                     src={LOGO_URL}
-                    alt="MOUNIR BARBERSHOP Logo Centered"
+                    alt=""
                     className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(196,154,74,0.4)]"
                     referrerPolicy="no-referrer"
                   />
                 </div>
                 <div className="mt-4 text-center">
                   <span className="font-display text-xs text-gold-warm tracking-[0.25em] block uppercase font-bold">
-                    Est. 2026
+                    Bruxelles
                   </span>
                   <span className="text-[10px] text-white-off/50 font-mono tracking-widest block mt-1 uppercase">
                     Av. de la Reine, 201
@@ -137,9 +137,9 @@ export default function About({ currentLang }: AboutProps) {
               <div className="flex items-start space-x-3 p-4 rounded bg-brown-dark/20 border border-brown-leather/25">
                 <MapPin className="w-5 h-5 text-gold-warm shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-display text-xs text-gold-warm tracking-wider uppercase font-semibold mb-1">
+                  <h3 className="font-display text-xs text-gold-warm tracking-wider uppercase font-semibold mb-1">
                     {currentLang === 'FR' ? 'Accès direct' : currentLang === 'EN' ? 'Direct Access' : 'Directe toegang'}
-                  </h4>
+                  </h3>
                   <p className="text-xs text-white-off/60">
                     Av. de la Reine 201, 1000 Bruxelles.
                   </p>
@@ -151,11 +151,11 @@ export default function About({ currentLang }: AboutProps) {
                   ★
                 </div>
                 <div>
-                  <h4 className="font-display text-xs text-gold-warm tracking-wider uppercase font-semibold mb-1">
-                    {currentLang === 'FR' ? 'Réservation garantie' : currentLang === 'EN' ? 'Guaranteed Booking' : 'Gegarandeerde boeking'}
-                  </h4>
+                  <h3 className="font-display text-xs text-gold-warm tracking-wider uppercase font-semibold mb-1">
+                    {currentLang === 'FR' ? 'Réservation en ligne' : currentLang === 'EN' ? 'Online booking' : 'Online reservatie'}
+                  </h3>
                   <p className="text-xs text-white-off/60">
-                    {currentLang === 'FR' ? 'Créneau bloqué instantanément.' : currentLang === 'EN' ? 'Instant time slot confirmation.' : 'Onmiddellijke tijdslotbevestiging.'}
+                    {currentLang === 'FR' ? 'Prise de rendez-vous via Google Calendar.' : currentLang === 'EN' ? 'Appointments via Google Calendar.' : 'Afspraken via Google Calendar.'}
                   </p>
                 </div>
               </div>

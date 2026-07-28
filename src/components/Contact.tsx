@@ -74,9 +74,9 @@ export default function Contact({ currentLang }: ContactProps) {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-display text-xs text-gold-warm tracking-wider uppercase font-semibold mb-1.5">
+                  <h3 className="font-display text-xs text-gold-warm tracking-wider uppercase font-semibold mb-1.5">
                     {t.contactAddrLabel}
-                  </h4>
+                  </h3>
                   <p className="text-white-off/90 text-sm font-semibold">
                     Av. de la Reine 201
                   </p>
@@ -98,9 +98,9 @@ export default function Contact({ currentLang }: ContactProps) {
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-display text-xs text-gold-warm tracking-wider uppercase font-semibold mb-1.5">
+                  <h3 className="font-display text-xs text-gold-warm tracking-wider uppercase font-semibold mb-1.5">
                     {t.contactActLabel}
-                  </h4>
+                  </h3>
                   <p className="text-white-off/90 text-sm font-semibold leading-snug">
                     {t.contactActText}
                   </p>

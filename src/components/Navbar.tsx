@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Calendar, Globe } from 'lucide-react';
 import { Language, BOOKING_URL, LOGO_URL, GENERAL_TRANSLATIONS, LANGUAGES } from '../translations';
+import { ROUTES } from '../siteConfig';
 
 interface NavbarProps {
   currentLang: Language;
-  onChangeLang: (lang: Language) => void;
   activeSection: string;
 }
 
-export default function Navbar({ currentLang, onChangeLang, activeSection }: NavbarProps) {
+export default function Navbar({ currentLang, activeSection }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +41,21 @@ export default function Navbar({ currentLang, onChangeLang, activeSection }: Nav
     { name: t.navContact, href: '#contact', id: 'contact' },
   ];
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  const toggleMenu = () => setIsOpen((open) => !open);
 
   // Elegant barber flourish line svg
   const FlourishLeft = () => (
@@ -61,6 +76,7 @@ export default function Navbar({ currentLang, onChangeLang, activeSection }: Nav
     <>
       <nav
         id="navbar"
+        aria-label={currentLang === 'FR' ? 'Navigation principale' : currentLang === 'EN' ? 'Main navigation' : 'Hoofdnavigatie'}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled
             ? 'bg-[#0F0F0F]/95 backdrop-blur-md border-b border-brown-leather/30 shadow-2xl h-[90px]'
@@ -72,7 +88,8 @@ export default function Navbar({ currentLang, onChangeLang, activeSection }: Nav
           {navLinks.map((link) => (
             <a
               key={link.id}
-              href={link.href}
+              href={`${ROUTES[currentLang].path}${link.href}`}
+              aria-current={activeSection === link.id ? 'page' : undefined}
               className={`font-display text-sm tracking-widest uppercase transition-colors duration-300 relative py-2 group ${
                 activeSection === link.id ? 'text-gold-warm' : 'text-white-off hover:text-gold-warm'
               }`}
@@ -90,7 +107,7 @@ export default function Navbar({ currentLang, onChangeLang, activeSection }: Nav
         {/* Center: Brand Logo flanked by golden flourishes */}
         <div className="flex items-center justify-center space-x-4 lg:w-1/3">
           <FlourishLeft />
-          <a href="#home" className="flex items-center shrink-0 group focus:outline-none" aria-label="MOUNIR BARBERSHOP">
+          <a href={ROUTES[currentLang].path} className="flex items-center shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-warm" aria-label="MOUNIR BARBERSHOP">
             <div className="w-16 h-16 md:w-[72px] md:h-[72px] rounded-full bg-black/40 border border-gold-dark/40 flex items-center justify-center p-1.5 transition-transform duration-500 group-hover:scale-105 group-hover:border-gold-warm">
               <img
                 src={LOGO_URL}
@@ -110,16 +127,19 @@ export default function Navbar({ currentLang, onChangeLang, activeSection }: Nav
             <Globe className="w-4 h-4 text-gold-dark" />
             <div className="flex space-x-2 text-xs font-mono tracking-widest text-white-off/60">
               {LANGUAGES.map((lang) => (
-                <button
+                <a
                   key={lang.code}
-                  onClick={() => onChangeLang(lang.code)}
+                  href={ROUTES[lang.code].path}
+                  hrefLang={ROUTES[lang.code].hreflang}
+                  lang={ROUTES[lang.code].htmlLang}
+                  aria-current={currentLang === lang.code ? 'page' : undefined}
+                  aria-label={ROUTES[lang.code].label}
                   className={`transition-colors font-semibold py-1 px-1.5 rounded hover:text-gold-warm ${
                     currentLang === lang.code ? 'text-gold-warm bg-brown-dark/30 font-bold border border-gold-dark/20' : ''
                   }`}
-                  aria-label={`Switch to ${lang.label}`}
                 >
                   {lang.label}
-                </button>
+                </a>
               ))}
             </div>
           </div>
@@ -152,23 +172,30 @@ export default function Navbar({ currentLang, onChangeLang, activeSection }: Nav
           {/* Quick Language Selector */}
           <div className="flex items-center bg-black/40 border border-brown-leather/30 px-2 py-1.5 rounded">
             {LANGUAGES.map((lang) => (
-              <button
+              <a
                 key={lang.code}
-                onClick={() => onChangeLang(lang.code)}
+                href={ROUTES[lang.code].path}
+                hrefLang={ROUTES[lang.code].hreflang}
+                lang={ROUTES[lang.code].htmlLang}
+                aria-current={currentLang === lang.code ? 'page' : undefined}
+                aria-label={ROUTES[lang.code].label}
                 className={`text-[11px] font-bold px-1.5 transition-colors ${
                   currentLang === lang.code ? 'text-gold-warm' : 'text-white-off/60'
                 }`}
               >
                 {lang.code}
-              </button>
+              </a>
             ))}
           </div>
 
           {/* Hamburger Menu Toggle */}
           <button
+            ref={menuButtonRef}
             onClick={toggleMenu}
             className="p-2.5 text-white-off hover:text-gold-warm focus:outline-none border border-brown-leather/30 rounded bg-brown-dark/20"
-            aria-label="Toggle Menu"
+            aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu-overlay"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -180,6 +207,8 @@ export default function Navbar({ currentLang, onChangeLang, activeSection }: Nav
         {isOpen && (
           <motion.div
             id="mobile-menu-overlay"
+            role="navigation"
+            aria-label={currentLang === 'FR' ? 'Navigation mobile' : currentLang === 'EN' ? 'Mobile navigation' : 'Mobiele navigatie'}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -193,7 +222,8 @@ export default function Navbar({ currentLang, onChangeLang, activeSection }: Nav
                   {navLinks.map((link) => (
                     <a
                       key={link.id}
-                      href={link.href}
+                      href={`${ROUTES[currentLang].path}${link.href}`}
+                      aria-current={activeSection === link.id ? 'page' : undefined}
                       onClick={() => setIsOpen(false)}
                       className={`font-display text-lg tracking-[0.2em] uppercase py-2.5 border-b border-brown-leather/20 flex items-center justify-between ${
                         activeSection === link.id ? 'text-gold-warm font-bold pl-2' : 'text-white-off pl-0'

@@ -50,17 +50,17 @@ export default function Footer({ currentLang }: FooterProps) {
               {t.footerText}
             </p>
             
-            <div className="flex items-center space-x-2 text-gold-warm text-xs font-mono tracking-wider pt-2">
+            <address className="not-italic flex items-center space-x-2 text-gold-warm text-xs font-mono tracking-wider pt-2">
               <Compass className="w-3.5 h-3.5" />
               <span>Av. de la Reine 201, 1000 Bruxelles</span>
-            </div>
+            </address>
           </div>
 
           {/* Center Block: Quick Anchor Links */}
           <div className="md:col-span-4 flex flex-col space-y-4">
-            <h4 className="font-display text-xs text-gold-warm uppercase tracking-[0.2em] font-bold">
+            <h2 className="font-display text-xs text-gold-warm uppercase tracking-[0.2em] font-bold">
               Navigation
-            </h4>
+            </h2>
             <div className="grid grid-cols-2 gap-3 max-w-[200px]">
               {links.map((link, idx) => (
                 <a
@@ -76,16 +76,16 @@ export default function Footer({ currentLang }: FooterProps) {
 
           {/* Right Block: Instant Reservation */}
           <div className="md:col-span-4 flex flex-col space-y-4 md:items-end">
-            <h4 className="font-display text-xs text-gold-warm uppercase tracking-[0.2em] font-bold">
+            <h2 className="font-display text-xs text-gold-warm uppercase tracking-[0.2em] font-bold">
               {currentLang === 'FR' ? 'Rendez-vous' : currentLang === 'EN' ? 'Appointment' : 'Afspraak'}
-            </h4>
+            </h2>
             
             <p className="text-white-off/50 text-xs md:text-right max-w-[280px]">
               {currentLang === 'FR'
-                ? 'Réservation en ligne 24h/24 via Google Calendar.'
+                ? 'Réservation en ligne via Google Calendar.'
                 : currentLang === 'EN'
-                ? 'Online booking available 24/7 on Google Calendar.'
-                : 'Online reservering 24/7 beschikbaar via Google Calendar.'}
+                ? 'Online booking via Google Calendar.'
+                : 'Online reservering via Google Calendar.'}
             </p>
             
             <a

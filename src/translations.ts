@@ -1,4 +1,6 @@
-export type Language = 'FR' | 'EN' | 'NL';
+import type { SiteLanguage } from './siteConfig';
+
+export type Language = SiteLanguage;
 
 export interface ServiceItem {
   id: string;
@@ -359,6 +361,4 @@ export const GENERAL_TRANSLATIONS = {
   }
 };
 
-export const BOOKING_URL = 'https://calendar.app.google/SWAQ5j7sJ7vq3Q8e8';
-export const DIRECTIONS_URL = 'https://www.google.com/maps/dir/?api=1&destination=Av.+de+la+Reine+201%2C+1000+Bruxelles%2C+Belgique';
-export const LOGO_URL = 'https://res.cloudinary.com/dj8vbaevh/image/upload/v1783039152/mb_fluaoa.png';
+export { BOOKING_URL, DIRECTIONS_URL, LOGO_URL } from './siteConfig';

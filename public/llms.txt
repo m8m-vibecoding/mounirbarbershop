@@ -1,30 +1,45 @@
 # MOUNIR BARBERSHOP
 
-«MOUNIR BARBERSHOP est un salon de coiffure premium situé à Bruxelles, proposant des coupes pour hommes et garçons ainsi que des services de barbe au 201 Avenue de la Reine.»
+Ressource expérimentale complémentaire pour décrire le contenu public du site. Elle ne remplace ni les pages HTML, ni robots.txt, ni sitemap.xml.
 
-Informations générales utiles pour comprendre le site.
+MOUNIR BARBERSHOP est un salon de coiffure pour hommes et garçons à Bruxelles. Les prestations et prix ci-dessous proviennent du contenu public du site.
 
-Pages principales
+## Pages principales
 
-- [Accueil](https://mounirbarbershop.vercel.app/): Page principale présentant le salon, ses valeurs et son équipe.
-- [Services](https://mounirbarbershop.vercel.app/#services): Liste complète des prestations coiffure et barbe avec tarifs.
-- [Avis](https://mounirbarbershop.vercel.app/#reviews): Retours d'expérience des clients du salon.
-- [Contact](https://mounirbarbershop.vercel.app/#contact): Coordonnées, adresse à Bruxelles et formulaire de contact.
+- [Accueil en français](https://mounirbarbershop.vercel.app/) : présentation, services, prix, avis publiés, réservation et adresse.
+- [English](https://mounirbarbershop.vercel.app/en/) : version anglaise publiée.
+- [Nederlands](https://mounirbarbershop.vercel.app/nl/) : version néerlandaise publiée.
+- [Services et tarifs](https://mounirbarbershop.vercel.app/#services) : liste officielle des prestations et prix visibles.
+- [Réservation](https://mounirbarbershop.vercel.app/#booking) : lien vers le prestataire de réservation Google Calendar.
+- [Contact et adresse](https://mounirbarbershop.vercel.app/#contact) : localisation du salon.
 
-Produits ou services
-- "Coupe homme & barbe" (https://mounirbarbershop.vercel.app/#services): Coupe complète avec entretien de la barbe.
-- "Dégradé" (https://mounirbarbershop.vercel.app/#services): Coupe nette et précise.
-- "Coloration" (https://mounirbarbershop.vercel.app/#services): Changement de style ou renforcement.
-- "Coupe garçon + styling" (https://mounirbarbershop.vercel.app/#services): Coupe travaillée avec coiffage et finitions soignées.
+## Services et tarifs publics
 
-Contact officiel
+- **Coupe homme & barbe** — Coupe complète avec entretien de la barbe pour un résultat propre et structuré. Prix affiché : 20 €.
+- **Dégradé normal sans barbe** — Dégradé net et précis, idéal pour une coupe fraîche et entretenue. Prix affiché : 15 €.
+- **Coupe pour enfant** — Coupe enfant rapide, propre et adaptée aux plus jeunes. Prix affiché : 10 €.
+- **Barbe seule** — Entretien de barbe simple pour garder une ligne propre. Prix affiché : 7 €.
+- **Contour + Barbe** — Contour précis pour structurer la barbe et rafraîchir le visage. Prix affiché : 10 €.
+- **Coloration + coupe** — Service complet avec coloration et coupe pour changer ou renforcer votre style. Prix affiché : 30 €.
+- **Défrisage** — Défrisage pour lisser et discipliner les cheveux. Prix affiché : 15 €.
+- **Shampoing** — Shampoing en complément de votre service coiffure. Prix affiché : 5 €.
+- **Coupe garçon + styling** — Coupe garçon travaillée avec coiffage et finitions soignées. Prix affiché : 20 €.
+
+## Informations factuelles
 
 - Nom : MOUNIR BARBERSHOP
 - Adresse : Av. de la Reine 201, 1000 Bruxelles, Belgique
-- Langues : Français, Anglais, Néerlandais
+- Langues publiées : français, anglais et néerlandais
+- Devise des prix affichés : EUR
+- Prestataire de réservation : Google Calendar
 
-Règles de fraîcheur
+Aucun téléphone, email, horaire, identifiant légal ou politique commerciale n'est publié dans ce fichier faute de source vérifiable dans le projet.
 
-- Les prix officiels se trouvent à : https://mounirbarbershop.vercel.app/#services
-- Les politiques officielles se trouvent sur le site.
-- Date de dernière mise à jour du fichier : 2026-07-18
+## Ressources machine
+
+- [Sitemap XML](https://mounirbarbershop.vercel.app/sitemap.xml)
+- [Politique de crawl](https://mounirbarbershop.vercel.app/robots.txt)
+
+## Fraîcheur
+
+La source officielle des prix est la section [Services et tarifs](https://mounirbarbershop.vercel.app/#services). Aucune date de mise à jour n'est déclarée sans date éditoriale fiable.

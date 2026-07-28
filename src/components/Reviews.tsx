@@ -88,11 +88,11 @@ export default function Reviews({ currentLang }: ReviewsProps) {
                   {review.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-display text-xs text-white-off font-semibold tracking-wider">
+                  <h3 className="font-display text-xs text-white-off font-semibold tracking-wider">
                     {review.name}
-                  </h4>
+                  </h3>
                   <p className="text-[10px] text-white-off/50 uppercase tracking-widest">
-                    Google Local Guide
+                    {review.source}
                   </p>
                 </div>
               </div>
@@ -120,15 +120,10 @@ export default function Reviews({ currentLang }: ReviewsProps) {
             {tickerReviewers.map((name, index) => (
               <div
                 key={index}
+                aria-hidden={index >= OTHER_REVIEWERS.length}
                 className="flex items-center space-x-2.5 mx-8 shrink-0 bg-[#161616]/60 border border-brown-leather/15 py-1.5 px-4 rounded-full"
               >
                 <span className="text-xs text-white-off font-semibold font-sans">{name}</span>
-                <div className="flex space-x-0.5">
-                  {Array.from({ length: 5 }).map((_, sIdx) => (
-                    <Star key={sIdx} className="w-3 h-3 text-gold-warm fill-gold-warm" />
-                  ))}
-                </div>
-                <span className="text-[10px] font-mono text-gold-dark/60 font-bold">5.0</span>
               </div>
             ))}
           </div>

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useCallback, useEffect, useState } from 'react';
+import { motion } from 'motion/react';
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -10,139 +10,25 @@ import Reviews from './components/Reviews';
 import Booking from './components/Booking';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { Language, LANGUAGE_LOCALES, GENERAL_TRANSLATIONS, LOGO_URL, BOOKING_URL, SERVICES_TRANSLATIONS, REVIEWS } from './translations';
+import { Language, GENERAL_TRANSLATIONS, SERVICES_TRANSLATIONS } from './translations';
+import {
+  BUSINESS_FACTS,
+  canonicalFor,
+  LOGO_URL,
+  SITE_NAME,
+  SITE_ORIGIN,
+  SOCIAL_IMAGE_URL,
+} from './siteConfig';
 
-export default function App() {
-  const [currentLang, setCurrentLang] = useState<Language>('FR');
+interface AppProps {
+  initialLanguage?: Language;
+}
+
+export default function App({ initialLanguage = 'FR' }: AppProps) {
+  const currentLang = initialLanguage;
   const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
-
-  // Sync title, description and metadata on language shift
-  useEffect(() => {
-    const t = GENERAL_TRANSLATIONS[currentLang];
-    document.title = t.metaTitle;
-    
-    const setMeta = (name: string, content: string, attr: 'name' | 'property' = 'name') => {
-      let meta = document.querySelector(`meta[${attr}="${name}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute(attr, name);
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute('content', content);
-    };
-
-    setMeta('description', t.metaDesc);
-    setMeta('og:title', t.metaTitle, 'property');
-    setMeta('og:description', t.metaDesc, 'property');
-    setMeta('twitter:title', t.metaTitle);
-    setMeta('twitter:description', t.metaDesc);
-
-    // Set HTML lang attribute for screenreaders
-    document.documentElement.lang = LANGUAGE_LOCALES[currentLang];
-  }, [currentLang]);
-
-  // Inject Structured LocalBusiness Schema JSON-LD for local SEO
-  useEffect(() => {
-    const schemaId = 'mounir-barbershop-jsonld';
-    let script = document.getElementById(schemaId) as HTMLScriptElement;
-    if (!script) {
-      script = document.createElement('script');
-      script.id = schemaId;
-      script.type = 'application/ld+json';
-      document.head.appendChild(script);
-    }
-
-    const t = GENERAL_TRANSLATIONS[currentLang];
-    const services = SERVICES_TRANSLATIONS[currentLang];
-
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "HairSalon",
-          "@id": `${window.location.origin}/#organization`,
-          "name": "MOUNIR BARBERSHOP",
-          "image": LOGO_URL,
-          "url": window.location.origin,
-          "telephone": "", 
-          "priceRange": "€-€€",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Av. de la Reine 201",
-            "addressLocality": "Bruxelles",
-            "postalCode": "1000",
-            "addressCountry": "BE"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 50.871616,
-            "longitude": 4.361993
-          },
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-              "opens": "10:00",
-              "closes": "20:00"
-            }
-          ],
-          "sameAs": []
-        },
-        {
-          "@type": "WebSite",
-          "@id": `${window.location.origin}/#website`,
-          "url": window.location.origin,
-          "name": "MOUNIR BARBERSHOP",
-          "publisher": { "@id": `${window.location.origin}/#organization` }
-        },
-        {
-          "@type": "WebPage",
-          "@id": `${window.location.origin}/#webpage`,
-          "url": window.location.origin,
-          "name": t.metaTitle,
-          "isPartOf": { "@id": `${window.location.origin}/#website` },
-          "about": { "@id": `${window.location.origin}/#organization` },
-          "description": t.metaDesc
-        },
-        {
-          "@type": "ItemList",
-          "name": t.navServices,
-          "itemListElement": services.map((s, i) => ({
-            "@type": "ListItem",
-            "position": i + 1,
-            "item": {
-              "@type": "Service",
-              "name": s.name,
-              "description": s.description,
-              "offers": {
-                "@type": "Offer",
-                "price": s.price,
-                "priceCurrency": "EUR"
-              }
-            }
-          }))
-        },
-        {
-          "@type": "LocalBusiness",
-          "@id": `${window.location.origin}/#organization`,
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "50"
-          },
-          "review": REVIEWS.map(r => ({
-            "@type": "Review",
-            "author": { "@type": "Person", "name": r.name },
-            "reviewRating": { "@type": "Rating", "ratingValue": r.rating },
-            "reviewBody": r.text
-          }))
-        }
-      ]
-    };
-
-    script.text = JSON.stringify(structuredData);
-  }, [currentLang]);
+  const handleLoadingComplete = useCallback(() => setIsLoading(false), []);
 
   // Set up dynamic active section highlighting based on scroll coordinates
   useEffect(() => {
@@ -170,43 +56,109 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const t = GENERAL_TRANSLATIONS[currentLang];
+  const canonical = canonicalFor(currentLang);
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': ['HairSalon', 'Organization'],
+        '@id': `${SITE_ORIGIN}/#organization`,
+        name: BUSINESS_FACTS.name,
+        url: SITE_ORIGIN,
+        logo: LOGO_URL,
+        image: SOCIAL_IMAGE_URL,
+        address: { '@type': 'PostalAddress', ...BUSINESS_FACTS.address },
+        geo: { '@type': 'GeoCoordinates', ...BUSINESS_FACTS.geo },
+        currenciesAccepted: BUSINESS_FACTS.currenciesAccepted,
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_ORIGIN}/#website`,
+        url: SITE_ORIGIN,
+        name: SITE_NAME,
+        inLanguage: BUSINESS_FACTS.publicLanguages,
+        publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${canonical}#webpage`,
+        url: canonical,
+        name: t.metaTitle,
+        description: t.metaDesc,
+        inLanguage: currentLang.toLowerCase(),
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        about: { '@id': `${SITE_ORIGIN}/#organization` },
+        breadcrumb: { '@id': `${canonical}#breadcrumb` },
+        primaryImageOfPage: { '@type': 'ImageObject', url: SOCIAL_IMAGE_URL },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonical}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t.navHome, item: canonical },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${canonical}#services`,
+        name: t.navServices,
+        itemListElement: SERVICES_TRANSLATIONS[currentLang].map((service, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: {
+            '@type': 'Service',
+            '@id': `${canonical}#service-${service.id}`,
+            name: service.name,
+            description: service.description,
+            url: `${canonical}#services`,
+            provider: { '@id': `${SITE_ORIGIN}/#organization` },
+            offers: {
+              '@type': 'Offer',
+              price: service.price,
+              priceCurrency: BUSINESS_FACTS.currenciesAccepted,
+              url: `${canonical}#services`,
+            },
+          },
+        })),
+      },
+    ],
+  };
   return (
     <>
-      {/* Introduction Page Loader */}
-      <Loader onComplete={() => setIsLoading(false)} />
-
-      <AnimatePresence>
-        {!isLoading && (
-          <motion.div
-            id="app-root-layout"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col min-h-screen bg-[#0F0F0F]"
-          >
-            {/* Standard Fixed Top Navigation Bar */}
-            <Navbar
-              currentLang={currentLang}
-              onChangeLang={setCurrentLang}
-              activeSection={activeSection}
-            />
-
-            {/* Layout Wrapper with Top Spacing Offset for Fixed Header */}
-            <main className="flex-grow">
-              <Hero currentLang={currentLang} />
-              <About currentLang={currentLang} />
-              <Services currentLang={currentLang} />
-              <Gallery currentLang={currentLang} />
-              <Reviews currentLang={currentLang} />
-              <Booking currentLang={currentLang} />
-              <Contact currentLang={currentLang} />
-            </main>
-
-            {/* Standard Page Footer */}
-            <Footer currentLang={currentLang} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isLoading && <Loader onComplete={handleLoadingComplete} />}
+      <a className="skip-link" href="#main-content">
+        {currentLang === 'FR'
+          ? 'Aller au contenu'
+          : currentLang === 'EN'
+            ? 'Skip to content'
+            : 'Ga naar de inhoud'}
+      </a>
+      <motion.div
+        id="app-root-layout"
+        initial={false}
+        animate={{ opacity: 1 }}
+        className="flex flex-col min-h-screen bg-[#0F0F0F]"
+      >
+        <Navbar currentLang={currentLang} activeSection={activeSection} />
+        <main id="main-content" className="flex-grow" tabIndex={-1}>
+          <Hero currentLang={currentLang} />
+          <About currentLang={currentLang} />
+          <Services currentLang={currentLang} />
+          <Gallery currentLang={currentLang} />
+          <Reviews currentLang={currentLang} />
+          <Booking currentLang={currentLang} />
+          <Contact currentLang={currentLang} />
+        </main>
+        <Footer currentLang={currentLang} />
+      </motion.div>
+      <script
+        id="mounir-barbershop-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
+        }}
+      />
     </>
   );
 }
