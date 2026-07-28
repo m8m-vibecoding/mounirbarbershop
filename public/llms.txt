@@ -6,12 +6,12 @@ MOUNIR BARBERSHOP est un salon de coiffure pour hommes et garçons à Bruxelles.
 
 ## Pages principales
 
-- [Accueil en français](https://mounirbarbershop.vercel.app/) : présentation, services, prix, avis publiés, réservation et adresse.
-- [English](https://mounirbarbershop.vercel.app/en/) : version anglaise publiée.
-- [Nederlands](https://mounirbarbershop.vercel.app/nl/) : version néerlandaise publiée.
-- [Services et tarifs](https://mounirbarbershop.vercel.app/#services) : liste officielle des prestations et prix visibles.
-- [Réservation](https://mounirbarbershop.vercel.app/#booking) : lien vers le prestataire de réservation Google Calendar.
-- [Contact et adresse](https://mounirbarbershop.vercel.app/#contact) : localisation du salon.
+- [Accueil en français](https://mounirbarbersbxl.com/) : présentation, services, prix, avis publiés, réservation et adresse.
+- [English](https://mounirbarbersbxl.com/en/) : version anglaise publiée.
+- [Nederlands](https://mounirbarbersbxl.com/nl/) : version néerlandaise publiée.
+- [Services et tarifs](https://mounirbarbersbxl.com/#services) : liste officielle des prestations et prix visibles.
+- [Réservation](https://mounirbarbersbxl.com/#booking) : lien vers le prestataire de réservation Google Calendar.
+- [Contact et adresse](https://mounirbarbersbxl.com/#contact) : localisation du salon.
 
 ## Services et tarifs publics
 
@@ -37,9 +37,9 @@ Aucun téléphone, email, horaire, identifiant légal ou politique commerciale n
 
 ## Ressources machine
 
-- [Sitemap XML](https://mounirbarbershop.vercel.app/sitemap.xml)
-- [Politique de crawl](https://mounirbarbershop.vercel.app/robots.txt)
+- [Sitemap XML](https://mounirbarbersbxl.com/sitemap.xml)
+- [Politique de crawl](https://mounirbarbersbxl.com/robots.txt)
 
 ## Fraîcheur
 
-La source officielle des prix est la section [Services et tarifs](https://mounirbarbershop.vercel.app/#services). Aucune date de mise à jour n'est déclarée sans date éditoriale fiable.
+La source officielle des prix est la section [Services et tarifs](https://mounirbarbersbxl.com/#services). Aucune date de mise à jour n'est déclarée sans date éditoriale fiable.

@@ -28,4 +28,4 @@ Allow: /
 User-agent: Perplexity-User
 Allow: /
 
-Sitemap: https://mounirbarbershop.vercel.app/sitemap.xml
+Sitemap: https://mounirbarbersbxl.com/sitemap.xml

@@ -1,5 +1,6 @@
 import { Compass, Calendar } from 'lucide-react';
 import { Language, BOOKING_URL, LOGO_URL, GENERAL_TRANSLATIONS } from '../translations';
+import { AGENCY_URL, SITE_MAP_PATH } from '../siteConfig';
 
 interface FooterProps {
   currentLang: Language;
@@ -106,12 +107,19 @@ export default function Footer({ currentLang }: FooterProps) {
           <p className="text-[11px] font-mono tracking-wider text-white-off/40 text-center sm:text-left">
             {t.footerCopyright} • Développé par{' '}
             <a
-              href="https://m8magency.com/fr"
+              href={AGENCY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-white-off/60 hover:text-gold-warm hover:underline transition-colors"
             >
               m8magency
+            </a>
+            {' '}•{' '}
+            <a
+              href={SITE_MAP_PATH}
+              className="text-white-off/60 hover:text-gold-warm hover:underline transition-colors"
+            >
+              {currentLang === 'FR' ? 'Plan du site' : currentLang === 'EN' ? 'Site map' : 'Sitemap'}
             </a>
           </p>
           

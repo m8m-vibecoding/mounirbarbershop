@@ -15,14 +15,16 @@ const alternates = PUBLIC_ROUTES.map(
     `    <xhtml:link rel="alternate" hreflang="${route.hreflang}" href="${route.canonical}" />`,
 ).join('\n');
 const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_ORIGIN}/" />`;
-const urls = PUBLIC_ROUTES.map(
+const languageUrls = PUBLIC_ROUTES.map(
   (route) => `  <url>
     <loc>${route.canonical}</loc>
 ${alternates}
 ${xDefault}
   </url>`,
 ).join('\n');
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+const sitemapPageCanonical = new URL('/plan-du-site/', SITE_ORIGIN).href;
+const urls = `${languageUrls}\n  <url>\n    <loc>${sitemapPageCanonical}</loc>\n  </url>`;
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
@@ -110,4 +112,4 @@ await Promise.all([
   writeFile('public/llms.txt', llms, 'utf8'),
 ]);
 
-console.log(`Generated sitemap.xml (${PUBLIC_ROUTES.length} URLs), robots.txt and llms.txt.`);
+console.log(`Generated sitemap.xml (${PUBLIC_ROUTES.length + 1} URLs), robots.txt and llms.txt.`);

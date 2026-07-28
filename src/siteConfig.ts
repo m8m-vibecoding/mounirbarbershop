@@ -1,8 +1,9 @@
 export type SiteLanguage = 'FR' | 'EN' | 'NL';
 
-export const SITE_ORIGIN = 'https://mounirbarbershop.vercel.app';
+export const SITE_ORIGIN = 'https://mounirbarbersbxl.com';
 export const SITE_NAME = 'MOUNIR BARBERSHOP';
 export const DEFAULT_LANGUAGE: SiteLanguage = 'FR';
+export const SITE_MAP_PATH = '/plan-du-site/';
 
 export const LOGO_URL =
   'https://res.cloudinary.com/dj8vbaevh/image/upload/v1783039152/mb_fluaoa.png';
@@ -11,6 +12,22 @@ export const SOCIAL_IMAGE_URL =
 export const BOOKING_URL = 'https://calendar.app.google/SWAQ5j7sJ7vq3Q8e8';
 export const DIRECTIONS_URL =
   'https://www.google.com/maps/dir/?api=1&destination=Av.+de+la+Reine+201%2C+1000+Bruxelles%2C+Belgique';
+
+export const AGENCY_URL = 'https://m8magency.com/fr';
+
+export const NAVIGATION_SECTIONS = [
+  { id: 'home', label: 'Accueil' },
+  { id: 'services', label: 'Services et tarifs' },
+  { id: 'reviews', label: 'Avis clients' },
+  { id: 'booking', label: 'Réservation' },
+  { id: 'contact', label: 'Contact et adresse' },
+] as const;
+
+export const EXTERNAL_ACTIONS = [
+  { label: 'Prendre rendez-vous', href: BOOKING_URL },
+  { label: 'Obtenir un itinéraire', href: DIRECTIONS_URL },
+  { label: 'Agence de création du site', href: AGENCY_URL },
+] as const;
 
 export const BUSINESS_FACTS = {
   name: SITE_NAME,

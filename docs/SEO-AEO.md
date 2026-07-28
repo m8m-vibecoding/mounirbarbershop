@@ -5,7 +5,7 @@
 - React 19, TypeScript, Vite 6, Tailwind CSS 4 et Motion.
 - Gestionnaire de paquets : npm.
 - Hébergement détecté : Vercel.
-- Origine canonique : `https://mounirbarbershop.vercel.app`.
+- Origine canonique : `https://mounirbarbersbxl.com`.
 - Langues publiées : français, anglais et néerlandais.
 
 Le domaine provient des canonicals, métadonnées, sitemap et robots.txt déjà présents dans le dépôt. Il est centralisé dans `src/siteConfig.ts`.
@@ -16,9 +16,10 @@ Avant cette modification, Vite livrait une SPA avec un élément `#root` vide. L
 
 Le build produit maintenant trois documents HTML complets :
 
-- `/` — français, canonical `https://mounirbarbershop.vercel.app/` ;
-- `/en/` — anglais, canonical `https://mounirbarbershop.vercel.app/en/` ;
-- `/nl/` — néerlandais, canonical `https://mounirbarbershop.vercel.app/nl/`.
+- `/` — français, canonical `https://mounirbarbersbxl.com/` ;
+- `/en/` — anglais, canonical `https://mounirbarbersbxl.com/en/` ;
+- `/nl/` — néerlandais, canonical `https://mounirbarbersbxl.com/nl/`.
+- `/plan-du-site/` — plan HTML des pages, sections et actions externes accessibles depuis l’interface.
 
 Chaque document contient le contenu principal, la navigation, le pied de page et le JSON-LD avant hydratation. React hydrate ensuite ce HTML. La classe `no-js` garantit que les styles initiaux des animations ne masquent pas le contenu lorsque JavaScript est absent.
 
@@ -105,7 +106,7 @@ Google Search Console et Bing Webmaster Tools restent des actions liées aux com
 
 1. vérifier la propriété HTTPS exacte ;
 2. inspecter les trois URLs canoniques ;
-3. soumettre `https://mounirbarbershop.vercel.app/sitemap.xml` ;
+3. soumettre `https://mounirbarbersbxl.com/sitemap.xml` ;
 4. surveiller les rapports d’indexation, hreflang et données structurées ;
 5. ne demander une indexation que pour les URLs canoniques publiques.
 

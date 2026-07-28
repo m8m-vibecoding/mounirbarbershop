@@ -1,6 +1,6 @@
 import { readFile, stat } from 'node:fs/promises';
 import { join } from 'node:path';
-import { PUBLIC_ROUTES, SITE_ORIGIN } from '../src/siteConfig';
+import { AGENCY_URL, BOOKING_URL, DIRECTIONS_URL, NAVIGATION_SECTIONS, PUBLIC_ROUTES, SITE_MAP_PATH, SITE_ORIGIN } from '../src/siteConfig';
 
 const failures: string[] = [];
 const titles = new Set<string>();
@@ -61,18 +61,28 @@ const sitemap = await readFile('dist/sitemap.xml', 'utf8');
 const robots = await readFile('dist/robots.txt', 'utf8');
 const llms = await readFile('dist/llms.txt', 'utf8');
 const notFound = await readFile('dist/404.html', 'utf8');
+const sitemapStylesheet = await readFile('dist/sitemap.xsl', 'utf8');
+const siteMapPage = await readFile('dist/plan-du-site/index.html', 'utf8');
 const sitemapLocs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 
 expect(sitemap.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), 'sitemap.xml: missing UTF-8 declaration');
 expect(sitemap.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'), 'sitemap.xml: missing sitemap namespace');
 expect(sitemap.includes('xmlns:xhtml="http://www.w3.org/1999/xhtml"'), 'sitemap.xml: missing XHTML namespace');
-expect(sitemapLocs.length === PUBLIC_ROUTES.length, 'sitemap.xml: route count mismatch');
+expect(sitemapLocs.length === PUBLIC_ROUTES.length + 1, 'sitemap.xml: route count mismatch');
 expect(new Set(sitemapLocs).size === sitemapLocs.length, 'sitemap.xml: duplicate URLs');
+const siteMapCanonical = new URL(SITE_MAP_PATH, SITE_ORIGIN).href;
+expect(sitemapLocs.includes(siteMapCanonical), `sitemap.xml: missing ${siteMapCanonical}`);
+expect(sitemap.includes('<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'), 'sitemap.xml: missing visual stylesheet');
 for (const route of PUBLIC_ROUTES) {
   expect(sitemapLocs.includes(route.canonical), `sitemap.xml: missing ${route.canonical}`);
   expect(!/[?#]/.test(new URL(route.canonical).pathname), `sitemap.xml: invalid canonical ${route.canonical}`);
 }
 expect(!sitemap.includes('<lastmod>'), 'sitemap.xml: lastmod must be omitted without a reliable date');
+expect(sitemapStylesheet.includes('Voir toutes les pages, sections et actions'), 'sitemap.xsl: navigation plan link missing');
+expect(siteMapPage.includes(`<link rel="canonical" href="${siteMapCanonical}"`), 'plan-du-site: canonical mismatch');
+for (const section of NAVIGATION_SECTIONS) expect(siteMapPage.includes(`#${section.id}`), `plan-du-site: missing section ${section.id}`);
+for (const externalUrl of [BOOKING_URL, DIRECTIONS_URL.replace('&', '&amp;'), AGENCY_URL]) expect(siteMapPage.includes(externalUrl), `plan-du-site: missing external action ${externalUrl}`);
+expect(![sitemap, robots, llms, sitemapStylesheet, siteMapPage].some((content) => content.includes('mounirbarbershop.vercel.app')), 'temporary Vercel domain leaked into public discovery files');
 expect(robots.includes(`Sitemap: ${SITE_ORIGIN}/sitemap.xml`), 'robots.txt: sitemap reference mismatch');
 expect(robots.includes('User-agent: *\nAllow: /'), 'robots.txt: public crawl policy missing');
 expect(llms.includes('Ressource expérimentale'), 'llms.txt: experimental status missing');
